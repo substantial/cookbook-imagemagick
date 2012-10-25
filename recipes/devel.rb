@@ -19,6 +19,22 @@
 
 include_recipe "imagemagick"
 
+dependencies = value_for_platform(
+  "ubuntu" => {
+    "12.04" => %w{
+      libgvc5
+      libmagickcore4-extra
+      libmagickcore-dev
+    }
+  }
+)
+
+if dependencies
+  dependencies.each do |dependency|
+    package dependency
+  end
+end
+
 dev_pkg = value_for_platform(
   ["redhat", "centos", "fedora"] => { "default" => "ImageMagick-devel" },
   "debian" => { "default" => "libmagickwand-dev" },
