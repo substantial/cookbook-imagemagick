@@ -36,7 +36,7 @@ if dependencies
 end
 
 dev_pkg = value_for_platform(
-  ["redhat", "centos", "fedora"] => { "default" => "ImageMagick-devel" },
+  ["redhat", "centos", "fedora", "scientific"] => { "default" => "ImageMagick-devel" },
   "debian" => { "default" => "libmagickwand-dev" },
   "ubuntu" => {
     "8.04" => "libmagick9-dev",
